@@ -65,6 +65,10 @@ svg {
 	top: 50%;
 }
 
+svg:hover {
+	cursor: pointer;
+}
+
 svg:hover path {
 	stroke: #1390E5
 }
@@ -83,4 +87,24 @@ svg:hover+.input__wrapperInput {
 	background-color: #1390E5;
 	border: none;
 	border-radius: 5px;
+}
+
+.btn:hover {
+	cursor: pointer;
+}
+
+.btn:focus {
+	outline: none;
+}
+.errorContainer{
+	position: absolute;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 70px;
+	background-color: #1390E5;
+	color: #fff;
+	font-size: 24px;
+	top: 0;
 }
