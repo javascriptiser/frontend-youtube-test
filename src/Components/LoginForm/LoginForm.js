@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useFormik } from 'formik'
 
 
 import style from './loginForm.module.css'
@@ -33,37 +34,60 @@ export const LoginForm = () => {
 		})
 	}, [state.visiblePasswordSvg])
 
-	const authorization = () => {
-		const findData = { login: "admin", password: "admin" }
+	const authorization = (data) => {
 		for (const item of localDbFile) {
-			if (findData.login === item.login && findData.password === item.password) {
+			if (data.login === item.login && data.password === item.password) {
 				return true;
 			}
 		}
 		return false;
 	}
-	useEffect(() => {
-		console.log(authorization());
-	}, [])
+	const formik = useFormik({
+		initialValues: {
+			login: '',
+			password: ''
+		},
+		onSubmit: (values, actions) => {
+			if (authorization(values)) {
+				console.log('Успешно');
+				actions.resetForm({})
+			}
+			else {
+				actions.resetForm(...values)
+				console.log('Не успешно');
+			}
+		},
+
+	});
 
 
 	return <div className={style.container}>
-		<div className={style.container__inner}>
+		<form className={style.container__inner} onSubmit={formik.handleSubmit}>
 			<img src={logo} alt="logo" />
 			<h3>Вход</h3>
 			<div className={style.input__wrapper}>
 				<label className={style.input__wrapperLabel} htmlFor="login">Логин</label>
-				<input className={style.input__wrapperInput} type="text" name="login" />
+				<input
+					className={style.input__wrapperInput}
+					type="text"
+					name="login"
+					onChange={formik.handleChange}
+					value={formik.values.login}
+				/>
 			</div>
 			<div className={style.input__wrapper}>
 				<label className={style.input__wrapperLabel} htmlFor="password">Пароль</label>
 				{state.visiblePasswordSvg ? hiddenPasswordSvg : showedPasswordSvg}
-				<input className={style.input__wrapperInput}
+				<input
+					className={style.input__wrapperInput}
 					type={state.typePasswordInput}
-					name="password" />
+					name="password"
+					onChange={formik.handleChange}
+					value={formik.values.password}
+				/>
 			</div>
-			<button className={style.btn}>Войти</button>
-		</div>
+			<button className={style.btn} type={"submit"}>Войти</button>
+		</form>
 	</div>
 }
 
