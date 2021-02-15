@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react'
+
+
 import style from './loginForm.module.css'
 import logo from '../../Assets/Images/logo.png'
-
-import { useEffect, useState } from 'react'
+import localDbFile from '../../Assets/localDB.json';
 
 
 
@@ -24,7 +26,6 @@ export const LoginForm = () => {
 		<path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="#D1D1D1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
 		<path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#D1D1D1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
 	</svg>
-
 	useEffect(() => {
 		setState({
 			visiblePasswordSvg: state.visiblePasswordSvg,
@@ -32,7 +33,18 @@ export const LoginForm = () => {
 		})
 	}, [state.visiblePasswordSvg])
 
-
+	const authorization = () => {
+		const findData = { login: "admin", password: "admin" }
+		for (const item of localDbFile) {
+			if (findData.login === item.login && findData.password === item.password) {
+				return true;
+			}
+		}
+		return false;
+	}
+	useEffect(() => {
+		console.log(authorization());
+	}, [])
 
 
 	return <div className={style.container}>
