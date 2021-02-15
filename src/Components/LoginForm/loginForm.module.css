@@ -50,12 +50,6 @@ h3 {
 	border-radius: 5px;
 }
 
-.password {
-	position: absolute;
-	left: calc(100% - 37px);
-	top: 50%;
-}
-
 .input__wrapperInput:hover {
 	border: 1px solid #1390E5;
 	background-color: #C5E4F9;
@@ -63,6 +57,21 @@ h3 {
 
 .input__wrapperInput:focus {
 	outline: none;
+}
+
+svg {
+	position: absolute;
+	left: calc(100% - 37px);
+	top: 50%;
+}
+
+svg:hover path {
+	stroke: #1390E5
+}
+
+svg:hover+.input__wrapperInput {
+	border: 1px solid #1390E5;
+	background-color: #C5E4F9;
 }
 
 .btn {
