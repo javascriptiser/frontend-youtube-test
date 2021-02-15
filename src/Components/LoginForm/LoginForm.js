@@ -66,8 +66,8 @@ export const LoginForm = () => {
 		onSubmit: (values, actions) => {
 			console.log('submit');
 			if (authorization(values)) {
-				console.log('Успешно');
 				actions.resetForm({})
+				actions.setStatus({ success: 'Успешно' })
 			}
 			else {
 				console.log('Не успешно');
@@ -80,7 +80,8 @@ export const LoginForm = () => {
 	return <div className={style.container}>
 		{!!formik.errors.login && <div className={style.errorContainer}>{formik.errors.login}</div>}
 		{!!formik.errors.password && <div className={style.errorContainer}>{formik.errors.password}</div>}
-		{!!formik.status && <div className={style.errorContainer}>{formik.status.error}</div>}
+		{!!formik.status?.error && <div className={style.errorContainer}>{formik.status.error}</div>}
+		{!!formik.status?.success && <div className={style.errorContainer}>{formik.status.success}</div>}
 		<form className={style.container__inner} onSubmit={formik.handleSubmit}>
 			<img src={logo} alt="logo" />
 			<h3>Вход</h3>
