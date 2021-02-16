@@ -1,14 +1,19 @@
 import { useEffect, useState } from 'react'
 import { useFormik } from 'formik'
-
+import { useHistory } from 'react-router-dom'
 
 import style from './loginForm.module.css'
 import logo from '../../Assets/Images/logo.png'
 import localDbFile from '../../Assets/localDB.json';
+import { useDispatch } from 'react-redux';
+import { setIsAuth } from './authSlice'
+
 
 
 
 export const LoginForm = () => {
+	const dispatch = useDispatch();
+	const history = useHistory();
 	const [state, setState] = useState({
 		visiblePasswordSvg: false,
 		typePasswordInput: "password"
@@ -56,6 +61,18 @@ export const LoginForm = () => {
 		}
 		return errors;
 	}
+
+	const onSubmit = (values, actions) => {
+		if (authorization(values)) {
+			actions.resetForm({})
+			actions.setStatus({ success: 'Успешно' })
+			dispatch(setIsAuth({ isAuth: true, token: values }))
+			history.push("/home")
+		}
+		else {
+			actions.setStatus({ error: 'Ошибка авторизации' })
+		}
+	}
 	const formik = useFormik({
 		initialValues: {
 			login: '',
@@ -63,17 +80,7 @@ export const LoginForm = () => {
 		},
 		validate,
 		validateOnChange: false,
-		onSubmit: (values, actions) => {
-			console.log('submit');
-			if (authorization(values)) {
-				actions.resetForm({})
-				actions.setStatus({ success: 'Успешно' })
-			}
-			else {
-				console.log('Не успешно');
-				actions.setStatus({ error: 'Ошибка авторизации' })
-			}
-		},
+		onSubmit
 	});
 
 
