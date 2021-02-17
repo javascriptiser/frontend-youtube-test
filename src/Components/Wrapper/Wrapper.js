@@ -1,7 +1,6 @@
 
 
 import { useSelector } from 'react-redux'
-import { DISPLAY_STYLE_GRID, DISPLAY_STYLE_LIST } from '../../appSlice'
 import { Header } from '../Header/Header'
 import { SearchDefault } from '../SearchDefault/SearchDefault'
 import { SearchResult } from '../SearchResult/SearchResult'
@@ -14,8 +13,7 @@ export const Wrapper = () => {
 		<Header />
 		<div className={style.container__inner}>
 			{!videos.length && <SearchDefault />}
-			{displayStyle === DISPLAY_STYLE_GRID ? <SearchResult displayStyle={displayStyle} videos={videos} /> : null}
-			{displayStyle === DISPLAY_STYLE_LIST ? <SearchResult displayStyle={displayStyle} videos={videos} /> : null}
+			<SearchResult videos={videos} displayStyle={displayStyle} />
 		</div>
 	</div>
 }	

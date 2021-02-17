@@ -7,9 +7,21 @@ export const DISPLAY_STYLE_LIST = 'list';
 export const fetchVideosByTerm = createAsyncThunk(
 	'appSlice/fetchVideosByTerm',
 	async (term) => {
-		const response = await youtube.get('/search', {
+		let response = await youtube.get('/search', {
 			params: {
+				part: 'snippet',
+				maxResult: 5,
 				q: term
+			}
+		})
+		let result = '';
+		for (const iterator of response.data.items) {
+			result += `${iterator.id.videoId},`;
+		}
+		response = await youtube.get('/videos', {
+			params: {
+				part: 'contentDetails,statistics,snippet',
+				id: result
 			}
 		})
 		return response.data.items
