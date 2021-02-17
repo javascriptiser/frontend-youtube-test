@@ -1,6 +1,7 @@
 import { LoginForm } from "./Components/LoginForm/LoginForm";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { useAuthData } from "./useAuthData";
+import { useAuthData } from "./hooks/useAuthData"
+import { Wrapper } from "./Components/Wrapper/Wrapper";
 
 function App() {
   const { isAuth } = useAuthData();
@@ -16,7 +17,7 @@ function App() {
         <Route exact path="/">
           <LoginForm />
         </Route>
-        {protectedRoute(<Route path="/home"><div>HOME</div></Route>)}
+        {protectedRoute(<Route path="/home"><Wrapper /></Route>)}
       </Switch>
     </div>
   );

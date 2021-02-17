@@ -1,0 +1,45 @@
+.container {
+	display: flex;
+	align-items: center;
+	max-height: 80px;
+	background-color: #fff;
+	padding: 0px 200px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: 400;
+	color: #1390e5;
+}
+
+.logo {
+	width: 48px;
+	height: 48px;
+	margin-right: 40px;
+}
+
+.search {
+	margin-right: 46px;
+}
+
+.favorite, .search {
+	cursor: pointer;
+}
+
+.favorite:hover:after, .search:hover:after {
+	display: block;
+	position: relative;
+	top: 9px;
+	left: 0;
+	content: "";
+	width: 100%;
+	height: 2px;
+	background-color: #1390e5;
+}
+
+.link {
+	margin-left: auto;
+}
+.link a{
+	text-decoration: none;
+	color: #1390e5;
+}
