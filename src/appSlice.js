@@ -10,10 +10,11 @@ export const fetchVideosByTerm = createAsyncThunk(
 		let response = await youtube.get('/search', {
 			params: {
 				part: 'snippet',
-				maxResult: 5,
 				q: term
 			}
 		})
+		const count = response.data.pageInfo.totalResults;
+		console.log(response);
 		let result = '';
 		for (const iterator of response.data.items) {
 			result += `${iterator.id.videoId},`;
@@ -21,18 +22,23 @@ export const fetchVideosByTerm = createAsyncThunk(
 		response = await youtube.get('/videos', {
 			params: {
 				part: 'contentDetails,statistics,snippet',
-				id: result
+				id: result,
 			}
 		})
-		return response.data.items
+		return { items: response.data.items, count, term }
 	}
 )
+
+
 
 const appSlice = createSlice({
 	name: 'appSlice',
 	initialState: {
 		videos: [],
-		displayStyle: 'grid' //grid || list
+		displayStyle: 'grid', //grid || list
+		count: null,
+		term: null
+
 	},
 	reducers: {
 		setDisplayStyle(state, action) {
@@ -41,7 +47,9 @@ const appSlice = createSlice({
 	},
 	extraReducers: {
 		[fetchVideosByTerm.fulfilled]: (state, action) => {
-			state.videos = action.payload
+			state.videos = action.payload.items
+			state.count = action.payload.count
+			state.term = action.payload.term
 		}
 	}
 })

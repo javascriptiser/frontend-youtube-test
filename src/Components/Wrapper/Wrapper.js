@@ -12,8 +12,8 @@ export const Wrapper = () => {
 	return <div className={style.container}>
 		<Header />
 		<div className={style.container__inner}>
-			{!videos.length && <SearchDefault />}
-			<SearchResult videos={videos} displayStyle={displayStyle} />
+			<SearchDefault />
+			{videos.length > 0 && <SearchResult videos={videos} displayStyle={displayStyle} />}
 		</div>
 	</div>
 }	

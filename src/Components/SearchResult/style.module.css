@@ -1,0 +1,19 @@
+.container {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	margin-top: 20px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+}
+
+.container__inner {
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+}
+.transparent{
+	opacity: 50%;
+}
