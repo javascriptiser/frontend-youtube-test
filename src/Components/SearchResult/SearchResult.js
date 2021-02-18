@@ -1,17 +1,17 @@
-import { useEffect } from "react"
 import { useSelector } from "react-redux"
 import style from './style.module.css'
 
 export const SearchResult = ({ videos }) => {
-	const { count, term } = useSelector(state => state.appReducer)
+	const { count, term, displayStyle } = useSelector(state => state.appReducer)
 	return <>
-		<Template videos={videos} count={count} term={term} />
+		<Template videos={videos} count={count} term={term} displayStyle={displayStyle} />
 	</>
 }
 
-const Template = ({ videos, count, term }) => {
+const Template = ({ videos, count, term, displayStyle }) => {
 	const maxCharacterCount = 40;
 	return <div className={style.container}>
+		<div>{displayStyle}</div>
 		<div>Видео по запросу "{term}" <span className={style.transparent}>{count}</span></div>
 		<div className={style.container__inner}>
 			{videos.map((item, index) => {
