@@ -6,14 +6,29 @@
 	font-family: 'Roboto', sans-serif;
 	font-weight: 500;
 	font-size: 16px;
+	min-width: 100%;
 }
 
 .container__inner {
 	margin-top: 20px;
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, minmax(245px, 1fr));
 	grid-gap: 20px;
 }
-.transparent{
+
+
+.container__innerItem iframe {
+	width: 100%;
+}
+
+.filter__container {
+	margin-top: 40px;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+
+.transparent {
 	opacity: 50%;
 }

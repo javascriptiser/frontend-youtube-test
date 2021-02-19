@@ -1,5 +1,6 @@
 .container {
 	font-family: 'Roboto', sans-serif;
+	width: 100%;
 }
 
 .container h3 {
@@ -11,7 +12,7 @@
 }
 
 .container input {
-	width: 536px;
+	width: calc(100% - 150px);
 	height: 52px;
 	border: 1px solid rgba(138, 138, 139, 0.2);
 	border-radius: 5px;
