@@ -59,17 +59,17 @@ h3 {
 	outline: none;
 }
 
-svg {
+.input__wrapper svg {
 	position: absolute;
 	left: calc(100% - 37px);
 	top: 50%;
 }
 
-svg:hover {
+.input__wrapper svg:hover {
 	cursor: pointer;
 }
 
-svg:hover path {
+.input__wrapper svg:hover path {
 	stroke: #1390E5
 }
 

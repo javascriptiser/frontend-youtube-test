@@ -35,7 +35,8 @@ const appSlice = createSlice({
 	name: 'appSlice',
 	initialState: {
 		videos: [],
-		displayStyle: 'grid', //grid || list
+		// displayStyle: DISPLAY_STYLE_GRID,
+		displayStyle: DISPLAY_STYLE_LIST,
 		count: null,
 		term: null
 

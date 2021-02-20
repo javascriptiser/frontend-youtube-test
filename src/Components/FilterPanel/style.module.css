@@ -1,0 +1,26 @@
+.filter__container {
+	margin-top: 40px;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.transparentText {
+	opacity: 50%;
+}
+
+.filter__containerText {
+	font-family: 'Roboto', 'sans-serif';
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.listSvg, .gridSvg {
+	stroke: black;
+}
+
+.listSvg:hover, .gridSvg:hover {
+	cursor: pointer;
+	stroke: #1390E5;
+}
