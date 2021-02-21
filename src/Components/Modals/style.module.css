@@ -1,0 +1,87 @@
+.container {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	background-color: rgb(45, 153, 224);
+	width: 100%;
+	height: 100%;
+	z-index: 9000;
+	font-family: 'Roboto', 'sans-serif';
+}
+
+.container__inner {
+	box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.3);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 570px;
+	width: 510px;
+	background-color: #fff;
+	padding-top: 36px;
+	border-radius: 5px;
+}
+
+.header {
+	font-size: 18px;
+}
+
+.form__container {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	flex-direction: column;
+	padding: 40px 36px;
+}
+
+.inputs__container {
+	display: flex;
+	flex-direction: column;
+}
+
+.inputs__container:not(:first-child) {
+	margin-top: 20px;
+}
+
+.inputs__containerInput {
+	padding: 12px 15px;
+	font-size: 20px;
+	line-height: 24px;
+	height: 40px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.inputs__containerInput:focus {
+	outline: none;
+}
+
+.inputs__containerLabel {
+	font-size: 16px;
+	line-height: 22px;
+}
+
+.buttons__container {
+	display: flex;
+	margin-top: auto;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.buttons__container button {
+	width: 210px;
+	background-color: #1390e5;
+	color: #fff;
+	padding: 14px 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+}
+
+.buttons__container button:hover {
+	background-color: #fff;
+	color: #1390e5;
+	border: 1px solid #1390e5;
+}
