@@ -1,7 +1,7 @@
 import style from './style.module.css'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchVideosByTerm } from '../../appSlice'
+import { fetchVideos } from '../../appSlice'
 import { Favorite } from '../Modals/Favorite'
 
 export const SearchDefault = () => {
@@ -13,7 +13,7 @@ export const SearchDefault = () => {
 	}
 
 	const handleSubmit = () => {
-		dispatch(fetchVideosByTerm(inputValue))
+		dispatch(fetchVideos({ term: inputValue, maxResults: 12 }))
 	}
 	if (showModal) return <Favorite onCansel={() => setShowModal(!showModal)} />
 	return <div className={style.container}>
