@@ -36,8 +36,6 @@ export const FilterPanel = ({ count, term }) => {
 			Видео по запросу "{term}" <span className={style.transparentText}>{count}</span>
 		</div>
 		<div className={style.filter__container_inner}>
-			{/* <button onClick={() => dispatch(setDisplayStyle(DISPLAY_STYLE_GRID))}>Grid</button>
-			<button onClick={() => dispatch(setDisplayStyle(DISPLAY_STYLE_LIST))}>List</button> */}
 			<GridSvg handleClick={() => dispatch(setDisplayStyle(DISPLAY_STYLE_GRID))} />
 			<ListSvg handleClick={() => dispatch(setDisplayStyle(DISPLAY_STYLE_LIST))} />
 		</div>

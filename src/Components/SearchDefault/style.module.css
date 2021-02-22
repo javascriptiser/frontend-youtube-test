@@ -13,6 +13,8 @@
 
 .container input {
 	width: calc(100% - 150px);
+	font-family: 'Roboto', sans-serif;
+	padding: 14px 15px;
 	height: 52px;
 	border: 1px solid rgba(138, 138, 139, 0.2);
 	border-radius: 5px;
@@ -30,4 +32,12 @@
 	outline: none;
 	border: none;
 	cursor: pointer;
+}
+.container__inner{
+	position: relative;
+}
+.favoriteButton{
+	position: absolute;
+	left: calc(100% - 305px);
+	top: 0;
 }
