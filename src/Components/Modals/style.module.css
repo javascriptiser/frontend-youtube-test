@@ -85,3 +85,7 @@
 	color: #1390e5;
 	border: 1px solid #1390e5;
 }
+
+.error {
+	color: red;
+}

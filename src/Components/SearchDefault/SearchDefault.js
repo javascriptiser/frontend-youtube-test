@@ -15,7 +15,10 @@ export const SearchDefault = () => {
 	const handleSubmit = () => {
 		dispatch(fetchVideos({ term: inputValue, maxResults: 12 }))
 	}
-	if (showModal) return <Favorite onCansel={() => setShowModal(!showModal)} />
+	if (showModal) return <Favorite
+		onCansel={() => setShowModal(!showModal)}
+		query={inputValue}
+	/>
 	return <div className={style.container}>
 		<h3>Поиск видео</h3>
 		<div className={style.container__inner}>
