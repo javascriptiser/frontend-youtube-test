@@ -1,14 +1,22 @@
 import { useSelector } from "react-redux"
 import { DISPLAY_STYLE_GRID } from "../../appSlice"
 import { FilterPanel } from "../FilterPanel/FilterPanel"
+import { SearchDefault } from "../SearchDefault/SearchDefault"
 import style from './style.module.css'
 
 
-export const SearchResult = ({ videos }) => {
+const SearchResult = ({ videos }) => {
 	const { count, term, displayStyle } = useSelector(state => state.appReducer)
 	return <>
 		<FilterPanel count={count} term={term} displayStyle={displayStyle} />
 		<Template videos={videos} displayStyle={displayStyle} />
+	</>
+}
+export const SearchContainer = () => {
+	const { videos, displayStyle } = useSelector(state => state.appReducer)
+	return <>
+		<SearchDefault />
+		{videos.length > 0 && <SearchResult videos={videos} displayStyle={displayStyle} />}
 	</>
 }
 

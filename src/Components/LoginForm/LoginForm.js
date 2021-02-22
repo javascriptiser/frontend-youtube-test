@@ -67,7 +67,7 @@ export const LoginForm = () => {
 			actions.resetForm({})
 			actions.setStatus({ success: 'Успешно' })
 			dispatch(setIsAuth({ isAuth: true, token: values }))
-			history.push("/home")
+			history.push("/search")
 		}
 		else {
 			actions.setStatus({ error: 'Ошибка авторизации' })

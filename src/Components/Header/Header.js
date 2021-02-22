@@ -15,8 +15,8 @@ export const Header = () => {
 	}
 	return <header className={style.container}>
 		<img className={style.logo} src={logo} alt="logo" />
-		<div className={style.search}>Поиск</div>
-		<div className={style.favorite}>Избранное</div>
+		<div className={style.search}><Link to="/search">Поиск</Link></div>
+		<div className={style.favorite}><Link to="/favorites">Избранное</Link></div>
 		<div className={style.link}>
 			<Link to="/"
 				onClick={removeToken}

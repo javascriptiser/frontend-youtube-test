@@ -1,4 +1,9 @@
 .container {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	padding: 0px 200px;
 	display: flex;
 	align-items: center;
 	max-height: 80px;
@@ -7,6 +12,7 @@
 	line-height: 28px;
 	font-weight: 400;
 	color: #1390e5;
+	background-color: #fff;
 }
 
 .logo {
@@ -37,7 +43,8 @@
 .link {
 	margin-left: auto;
 }
-.link a{
+
+a {
 	text-decoration: none;
 	color: #1390e5;
 }
