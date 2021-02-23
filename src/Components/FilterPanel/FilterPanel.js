@@ -1,3 +1,4 @@
+import React from "react";
 import { useDispatch } from "react-redux";
 import { DISPLAY_STYLE_GRID, DISPLAY_STYLE_LIST, setDisplayStyle } from "../../appSlice";
 import style from './style.module.css'

@@ -1,7 +1,6 @@
 .container {
 	background-color: #e5e5e5;
 	min-height: 800px;
-	min-width: 1440px;
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
@@ -10,7 +9,6 @@
 
 .container__body {
 	min-height: 720px;
-	min-width: 1040px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
