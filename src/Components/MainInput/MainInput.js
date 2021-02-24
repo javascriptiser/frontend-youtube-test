@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { fetchVideos } from '../../appSlice'
 import { Favorite } from '../Modals/Favorite'
 
-export const SearchDefault = () => {
+export const MainInput = () => {
 	const dispatch = useDispatch();
 	const [inputValue, setInputValue] = useState('')
 	const [showModal, setShowModal] = useState(false);

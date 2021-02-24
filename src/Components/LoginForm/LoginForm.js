@@ -4,11 +4,11 @@ import { useHistory } from 'react-router-dom'
 
 import style from './loginForm.module.css'
 import logo from '../../Assets/Images/logo.png'
-import localDbFile from '../../Assets/localDB.json';
+
 import { useDispatch } from 'react-redux';
 import { setIsAuth } from './authSlice'
 import React from 'react'
-
+import { authorization } from '../../api/authorization'
 
 
 
@@ -43,14 +43,7 @@ export const LoginForm = () => {
 		})
 	}, [state.visiblePasswordSvg])
 
-	const authorization = (data) => {
-		for (const item of localDbFile) {
-			if (data.login === item.login && data.password === item.password) {
-				return true;
-			}
-		}
-		return false;
-	}
+	
 
 	const validate = (values) => {
 		const errors = {};
@@ -68,7 +61,7 @@ export const LoginForm = () => {
 			actions.resetForm({})
 			actions.setStatus({ success: 'Успешно' })
 			dispatch(setIsAuth({ isAuth: true, token: values }))
-			history.push("/search")
+			history.push("/")
 		}
 		else {
 			actions.setStatus({ error: 'Ошибка авторизации' })

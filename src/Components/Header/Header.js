@@ -5,8 +5,8 @@ import logo from '../../Assets/Images/logo.png'
 import { setToken } from "../LoginForm/authSlice"
 import style from './style.module.css'
 
-
-
+let x = 0;
+console.log(++x);
 export const Header = () => {
 	const dispatch = useDispatch();
 	const removeToken = () => {
@@ -15,10 +15,10 @@ export const Header = () => {
 	}
 	return <header className={style.container}>
 		<img className={style.logo} src={logo} alt="logo" />
-		<div className={style.search}><Link to="/search">Поиск</Link></div>
+		<div className={style.search}><Link to="/">Поиск</Link></div>
 		<div className={style.favorite}><Link to="/favorites">Избранное</Link></div>
 		<div className={style.link}>
-			<Link to="/"
+			<Link to="/login"
 				onClick={removeToken}
 			>Выйти</Link>
 		</div>

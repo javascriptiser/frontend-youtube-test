@@ -1,30 +1,24 @@
 import { useSelector } from "react-redux"
 import { DISPLAY_STYLE_GRID } from "../../appSlice"
 import { FilterPanel } from "../FilterPanel/FilterPanel"
-import { SearchDefault } from "../SearchDefault/SearchDefault"
+import { MainInput } from "../MainInput/MainInput"
 import style from './style.module.css'
 
 
-const SearchResult = ({ videos }) => {
-	const { count, term, displayStyle } = useSelector(state => state.appReducer)
+export const Main = () => {
+	const { videos, displayStyle, count, term } = useSelector(state => state.appReducer)
+	if (!videos.length > 0) return <MainInput />
 	return <>
+		<MainInput />
 		<FilterPanel count={count} term={term} displayStyle={displayStyle} />
-		<Template videos={videos} displayStyle={displayStyle} />
-	</>
-}
-export const SearchContainer = () => {
-	const { videos, displayStyle } = useSelector(state => state.appReducer)
-	return <>
-		<SearchDefault />
-		{videos.length > 0 && <SearchResult videos={videos} displayStyle={displayStyle} />}
+		<VideosList videos={videos} displayStyle={displayStyle} />
 	</>
 }
 
 
-const Template = ({ videos, displayStyle }) => {
+const VideosList = ({ videos, displayStyle }) => {
 	const maxCharacterCount = 80;
 	return <div className={style.container}>
-
 		<div className={displayStyle === DISPLAY_STYLE_GRID ? style.container__innerGrid : style.container__innerList}>
 			{videos.map((item, index) => {
 				return <div key={index} className={displayStyle === DISPLAY_STYLE_GRID ? style.container__innerItemGrid : style.container__innerItemList}>
